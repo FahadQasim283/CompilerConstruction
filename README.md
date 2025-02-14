@@ -25,7 +25,7 @@ git clone https://github.com/FahadQasim283/CompilerConstruction.git
 ```bash
 cd CompilerConstruction
 ```
-###3️⃣ Set Up the Environment
+### 3️⃣ Set Up the Environment
 Ensure you have the necessary tools and libraries installed to run the code examples and lab exercises. Refer to the specific instructions in each lab exercise's README file.
 
 ### 📂 Project Structure
