@@ -39,7 +39,7 @@ CompilerConstruction/
 │   ├── password_generator.cs
 │   ├── README.md
 ├── lab2/
-│   ├── task1.cs
+│   ├── variableNameValidator.cs
 │   ├── task2.cs
 │   ├── task3.cs
 ├── lab3/
@@ -58,7 +58,7 @@ This lab contains two C# programs:
 
 ### Lab 2: Regex-Based Validation
 This lab contains three C# programs:
-- **task1.cs**: Validates variable names using a regex pattern.
+- **variableNameValidator.cs**: Validates variable names using a regex pattern.
 - **task2.cs**: Validates logical operators (&&, ||, !) using a regex pattern.
 - **task3.cs**: Validates relational operators (==, !=, <=, >=, <, >) using a regex pattern.
 
