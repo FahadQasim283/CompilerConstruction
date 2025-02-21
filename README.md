@@ -64,7 +64,7 @@ This lab contains three C# programs:
 - **variableNameValidator.cs**: 👉 [check](lab2/variableNameValidator.cs)
 - **logicalOperatorFinder.cs**: 👉 [check](lab2/logicalOperatorFinder.cs)
 - **relationalOperatorFinder.cs**: 👉 [check](lab2/relationalOperatorFinder.cs)
-- **README.md**:[check](lab2/README.md)      
+- **README.md**: 👉 [check](lab2/README.md)      
 
 ### Lab 3: Floating-Point Number Validation 👉 [check](lab3/)
 This lab contains one C# program:
