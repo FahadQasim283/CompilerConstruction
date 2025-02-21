@@ -54,7 +54,7 @@ CompilerConstruction/
 ## 🧪 Lab Exercises
 
 ### Lab 1: Password Validation and Generation [Check](lab1/)
-
+This lab contains two C# programs:
 - **password_validator.cs**: [Check](lab1/password_validator.cs)
 - **password_generator.cs**: [Check](lab1/password_generator.cs)     
 
