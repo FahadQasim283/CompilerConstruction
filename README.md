@@ -57,7 +57,7 @@ CompilerConstruction/
 This lab contains two C# programs:
 - **password_validator.cs**: 👉 [check](lab1/password_validator.cs)
 - **password_generator.cs**: 👉 [check](lab1/password_generator.cs)
-- **README.md**:[check](lab1/README.md)      
+- **README.md**: 👉 [check](lab1/README.md)      
 
 ### Lab 2: Regex-Based Validation 👉 [check](lab2/)
 This lab contains three C# programs:
