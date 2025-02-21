@@ -56,17 +56,20 @@ CompilerConstruction/
 ### Lab 1: Password Validation and Generation [Check](lab1/)
 This lab contains two C# programs:
 - **password_validator.cs**: [Check](lab1/password_validator.cs)
-- **password_generator.cs**: [Check](lab1/password_generator.cs)     
+- **password_generator.cs**: [Check](lab1/password_generator.cs)
+- **README.md**:[Check](lab1/README.md)      
 
 ### Lab 2: Regex-Based Validation [Check](lab2/)
 This lab contains three C# programs:
 - **variableNameValidator.cs**: [Check](lab2/variableNameValidator.cs)
 - **logicalOperatorFinder.cs**: [Check](lab2/logicalOperatorFinder.cs)
 - **relationalOperatorFinder.cs**: [Check](lab2/relationalOperatorFinder.cs)
+- **README.md**:[Check](lab2/README.md)      
 
 ### Lab 3: Floating-Point Number Validation [Check](lab3/)
 This lab contains one C# program:
 - **floatingPointNumberValidator.cs**: [Check](lab3/floatingPointNumberValidator.cs)
+- **README.md**:[Check](lab3/README.md)
 
 ---
 
