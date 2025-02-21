@@ -40,8 +40,8 @@ CompilerConstruction/
 │   ├── README.md
 ├── lab2/
 │   ├── variableNameValidator.cs
-│   ├── task2.cs
-│   ├── task3.cs
+│   ├── logicalOperatorFinder.cs
+│   ├── relationalOperatorFinder.cs
 ├── lab3/
 │   ├── task1.cs
 ├── README.md
