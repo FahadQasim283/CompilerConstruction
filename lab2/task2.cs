@@ -20,3 +20,11 @@ class Program
             Console.WriteLine("Invalid logical operator.");
     }
 }
+
+/*
+&&	Valid logical operator.
+`	
+!	Valid logical operator.
+&	Invalid logical operator.
+and	Invalid logical operator.
+*/ 
