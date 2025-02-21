@@ -42,31 +42,19 @@ CompilerConstruction/
 │   ├── variableNameValidator.cs
 │   ├── logicalOperatorFinder.cs
 │   ├── relationalOperatorFinder.cs
+│   ├── README.md
 ├── lab3/
-│   ├── task1.cs
+│   ├── floatingPointNumberValidator.cs
+│   ├── README.md
 ├── README.md
 ```
 
 ---
 
 ## 🧪 Lab Exercises
-
-### Lab 1: Password Validation and Generation
-This lab contains two C# programs:
-- **password_validator.cs**: Validates passwords based on specific criteria.
-- **password_generator.cs**: Generates passwords based on user input.
-
-### Lab 2: Regex-Based Validation
-This lab contains three C# programs:
-- **variableNameValidator.cs**: Validates variable names using a regex pattern.
-- **task2.cs**: Validates logical operators (&&, ||, !) using a regex pattern.
-- **task3.cs**: Validates relational operators (==, !=, <=, >=, <, >) using a regex pattern.
-
-### Lab 3: Floating-Point Number Validation
-This lab contains one C# program:
-- **task1.cs**: Validates floating-point numbers with a maximum length of 6 using a regex pattern.
-
----
+[Lab 1: Password Validation and Generation](https://github.com/FahadQasim283/CompilerConstruction/tree/main/lab1)
+[Lab 2: Regex-Based Validation](https://github.com/FahadQasim283/CompilerConstruction/tree/main/lab2)
+[Lab 3: Floating-Point Number Validation](https://github.com/FahadQasim283/CompilerConstruction/tree/main/lab3)
 
 ## 📖 Usage
 - **Course Material**: Browse through the repository to find notes and resources.

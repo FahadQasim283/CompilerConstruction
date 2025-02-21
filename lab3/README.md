@@ -4,11 +4,11 @@ This folder contains one C# program related to floating-point number validation.
 
 ## Files
 
-- `task1.cs`: A program to validate floating-point numbers using a regex pattern.
+- `floatingPointNumberValidator.cs`: A program to validate floating-point numbers using a regex pattern.
 
 ---
 
-## task1.cs
+## floatingPointNumberValidator.cs
 
 This program validates floating-point numbers according to the following criteria:
 - Must be a valid floating-point number.
