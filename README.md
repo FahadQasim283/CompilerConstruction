@@ -1,6 +1,4 @@
-[Lab 1: Password Validation and Generation](https://github.com/FahadQasim283/CompilerConstruction/tree/main/lab1)
-[Lab 2: Regex-Based Validation](https://github.com/FahadQasim283/CompilerConstruction/tree/main/lab2)
-[Lab 3: Floating-Point Number Validation](https://github.com/FahadQasim283/CompilerConstruction/tree/main/lab3)# 📚 Compiler Construction
+# 📚 Compiler Construction
 
 A repository containing course material and lab exercises for the Compiler Construction course.
 
@@ -22,7 +20,7 @@ Follow the steps below to set up the project on your local machine:
 
 ```bash
 git clone https://github.com/FahadQasim283/CompilerConstruction.git
-```
+``` 
 ### 2⃣ Navigate to the Project Directory
 ```bash
 cd CompilerConstruction
@@ -53,20 +51,24 @@ CompilerConstruction/
 
 ---
 
+[Lab 1: Password Validation and Generation](https://github.com/FahadQasim283/CompilerConstruction/tree/main/lab1/)  
+[Lab 2: Regex-Based Validation](https://github.com/FahadQasim283/CompilerConstruction/tree/main/lab2/)  
+[Lab 3: Floating-Point Number Validation](https://github.com/FahadQasim283/CompilerConstruction/tree/main/lab3/)  
+
 ## 🧪 Lab Exercises
 
-### Lab 1: Password Validation and Generation [Check](https://github.com/FahadQasim283/CompilerConstruction/tree/main/lab1)
+### Lab 1: Password Validation and Generation [Check](https://github.com/FahadQasim283/CompilerConstruction/tree/main/lab1/)
 
 - **password_validator.cs**: [Check](https://github.com/FahadQasim283/CompilerConstruction/blob/main/lab1/password_validator.cs)
 - **password_generator.cs**: [Check](https://github.com/FahadQasim283/CompilerConstruction/blob/main/lab1/password_generator.cs)     
 
-### Lab 2: Regex-Based Validation [Check](https://github.com/FahadQasim283/CompilerConstruction/tree/main/lab2)
+### Lab 2: Regex-Based Validation [Check](https://github.com/FahadQasim283/CompilerConstruction/tree/main/lab2/)
 This lab contains three C# programs:
 - **variableNameValidator.cs**: [Check](https://github.com/FahadQasim283/CompilerConstruction/blob/main/lab2/variableNameValidator.cs)
 - **logicalOperatorFinder.cs**: [Check](https://github.com/FahadQasim283/CompilerConstruction/blob/main/lab2/logicalOperatorFinder.cs)
 - **relationalOperatorFinder.cs**: [Check](https://github.com/FahadQasim283/CompilerConstruction/blob/main/lab2/relationalOperatorFinder.cs)
 
-### Lab 3: Floating-Point Number Validation [Check](https://github.com/FahadQasim283/CompilerConstruction/tree/main/lab3)
+### Lab 3: Floating-Point Number Validation [Check](https://github.com/FahadQasim283/CompilerConstruction/tree/main/lab3/)
 This lab contains one C# program:
 - **floatingPointNumberValidator.cs**: [Check](https://github.com/FahadQasim283/CompilerConstruction/blob/main/lab3/floatingPointNumberValidator.cs)
 
@@ -98,4 +100,3 @@ For inquiries or support, open an issue on the GitHub repository.
 ---
 
 **⭐️ If you like this project, don't forget to give it a star!** 😊
-
