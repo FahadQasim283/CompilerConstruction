@@ -39,7 +39,7 @@ CompilerConstruction/
 │   ├── password_generator.cs
 │   ├── README.md
 ├── lab2/
-│   ├── task1.cs
+│   ├── variableNameValidator.cs
 │   ├── task2.cs
 │   ├── task3.cs
 ├── lab3/
