@@ -53,23 +53,23 @@ CompilerConstruction/
 
 ## 🧪 Code Links
 
-### Lab 1: Password Validation and Generation [Check](lab1/)
+### Lab 1: Password Validation and Generation <span style="text-decoration:none;">check</span>(lab1/)
 This lab contains two C# programs:
-- **password_validator.cs**: [Check](lab1/password_validator.cs)
-- **password_generator.cs**: [Check](lab1/password_generator.cs)
-- **README.md**: [Check](lab1/README.md)      
+- **password_validator.cs**: <span style="text-decoration:none;">check</span>(lab1/password_validator.cs)
+- **password_generator.cs**: <span style="text-decoration:none;">check</span>(lab1/password_generator.cs)
+- **README.md**: <span style="text-decoration:none;">check</span>(lab1/README.md)      
 
-### Lab 2: Regex-Based Validation [Check](lab2/)
+### Lab 2: Regex-Based Validation <span style="text-decoration:none;">check</span>(lab2/)
 This lab contains three C# programs:
-- **variableNameValidator.cs**: [Check](lab2/variableNameValidator.cs)
-- **logicalOperatorFinder.cs**: [Check](lab2/logicalOperatorFinder.cs)
-- **relationalOperatorFinder.cs**: [Check](lab2/relationalOperatorFinder.cs)
-- **README.md**: [Check](lab2/README.md)      
+- **variableNameValidator.cs**: <span style="text-decoration:none;">check</span>(lab2/variableNameValidator.cs)
+- **logicalOperatorFinder.cs**: <span style="text-decoration:none;">check</span>(lab2/logicalOperatorFinder.cs)
+- **relationalOperatorFinder.cs**: <span style="text-decoration:none;">check</span>(lab2/relationalOperatorFinder.cs)
+- **README.md**: <span style="text-decoration:none;">check</span>(lab2/README.md)      
 
-### Lab 3: Floating-Point Number Validation [Check](lab3/)
+### Lab 3: Floating-Point Number Validation <span style="text-decoration:none;">check</span>(lab3/)
 This lab contains one C# program:
-- **floatingPointNumberValidator.cs**: [Check](lab3/floatingPointNumberValidator.cs)
-- **README.md**: [Check](lab3/README.md)
+- **floatingPointNumberValidator.cs**: <span style="text-decoration:none;">check</span>(lab3/floatingPointNumberValidator.cs)
+- **README.md**: <span style="text-decoration:none;">check</span>(lab3/README.md)
 
 ---
 
