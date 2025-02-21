@@ -51,7 +51,7 @@ CompilerConstruction/
 
 ---
 
-## 🧪 Lab Exercises
+## 🧪 Code Links
 
 ### Lab 1: Password Validation and Generation [Check](lab1/)
 This lab contains two C# programs:
