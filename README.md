@@ -95,7 +95,7 @@ This project is public, no license required. Make sure to credit the author by m
 
 ## 📧 Contact
 - For inquiries or support, open an issue on the GitHub repository.
-- Read more about me [FahadQasim283](https://github.com/FahadQasim283/README.MD)
+- Read more about me [FahadQasim283](https://github.com/FahadQasim283/README.md)
 ---
 
 **⭐️ If you like this project, don't forget to give it a star!** 😊
