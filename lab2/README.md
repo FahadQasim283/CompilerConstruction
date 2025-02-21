@@ -4,13 +4,13 @@ This folder contains three C# programs related to regex-based validation.
 
 ## Files
 
-- `task1.cs`: A program to validate variable names using a regex pattern.
-- `task2.cs`: A program to validate logical operators using a regex pattern.
-- `task3.cs`: A program to validate relational operators using a regex pattern.
+- `variableNameValidator.cs`: A program to validate variable names using a regex pattern.
+- `logicalOperatorFinder.cs`: A program to validate logical operators using a regex pattern.
+- `relationalOperatorFinder.cs`: A program to validate relational operators using a regex pattern.
 
 ---
 
-## task1.cs
+## variableNameValidator.cs
 
 This program validates variable names according to the following criteria:
 - Must start with a letter.
@@ -23,7 +23,7 @@ Run the program to validate a variable name. The output will indicate whether th
 
 ---
 
-## task2.cs
+## logicalOperatorFinder.cs
 
 This program validates logical operators according to the following criteria:
 - Valid operators: `&&`, `||`, `!`.
@@ -34,7 +34,7 @@ Run the program to validate a logical operator. The output will indicate whether
 
 ---
 
-## task3.cs
+## relationalOperatorFinder.cs
 
 This program validates relational operators according to the following criteria:
 - Valid operators: `==`, `!=`, `<=`, `>=`, `<`, `>`.
