@@ -53,23 +53,23 @@ CompilerConstruction/
 
 ## 🧪 Code Links
 
-### Lab 1: Password Validation and Generation [Check](lab1/)
+### Lab 1: Password Validation and Generation [ 👉 check](lab1/)
 This lab contains two C# programs:
-- **password_validator.cs**: [Check](lab1/password_validator.cs)
-- **password_generator.cs**: [Check](lab1/password_generator.cs)
-- **README.md**:[Check](lab1/README.md)      
+- **password_validator.cs**: [ 👉 check](lab1/password_validator.cs)
+- **password_generator.cs**: [ 👉 check](lab1/password_generator.cs)
+- **README.md**:[ 👉 check](lab1/README.md)      
 
-### Lab 2: Regex-Based Validation [Check](lab2/)
+### Lab 2: Regex-Based Validation [ 👉 check](lab2/)
 This lab contains three C# programs:
-- **variableNameValidator.cs**: [Check](lab2/variableNameValidator.cs)
-- **logicalOperatorFinder.cs**: [Check](lab2/logicalOperatorFinder.cs)
-- **relationalOperatorFinder.cs**: [Check](lab2/relationalOperatorFinder.cs)
-- **README.md**:[Check](lab2/README.md)      
+- **variableNameValidator.cs**: [ 👉 check](lab2/variableNameValidator.cs)
+- **logicalOperatorFinder.cs**: [ 👉 check](lab2/logicalOperatorFinder.cs)
+- **relationalOperatorFinder.cs**: [ 👉 check](lab2/relationalOperatorFinder.cs)
+- **README.md**:[ 👉 check](lab2/README.md)      
 
-### Lab 3: Floating-Point Number Validation [Check](lab3/)
+### Lab 3: Floating-Point Number Validation [ 👉 check](lab3/)
 This lab contains one C# program:
-- **floatingPointNumberValidator.cs**: [Check](lab3/floatingPointNumberValidator.cs)
-- **README.md**:[Check](lab3/README.md)
+- **floatingPointNumberValidator.cs**: [ 👉 check](lab3/floatingPointNumberValidator.cs)
+- **README.md**:[ 👉 check](lab3/README.md)
 
 ---
 
@@ -89,7 +89,7 @@ Contributions are welcome! To contribute:
 ---
 
 ## 📝 License
-This project is public, no license required. Make sure to credit the author by mentioning the GitHub repository while using this project.
+This project is public, no license required. Make sure to credit the [author](https://github.com/FahadQasim283/) by mentioning the GitHub repository while using this project.
 
 ---
 
@@ -99,4 +99,3 @@ This project is public, no license required. Make sure to credit the author by m
 ---
 
 **⭐️ If you like this project, don't forget to give it a star!** 😊
-
