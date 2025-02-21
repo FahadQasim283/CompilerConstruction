@@ -1,3 +1,4 @@
+```markdown
 # 📚 Compiler Construction
 
 A repository containing course material and lab exercises for the Compiler Construction course.
@@ -53,23 +54,23 @@ CompilerConstruction/
 
 ## 🧪 Code Links
 
-### Lab 1: Password Validation and Generation <span style="text-decoration:none;">check</span>(lab1/)
+### Lab 1: Password Validation and Generation 👉 <a href="lab1/" style="text-decoration: none;">Check</a>
 This lab contains two C# programs:
-- **password_validator.cs**: <span style="text-decoration:none;">check</span>(lab1/password_validator.cs)
-- **password_generator.cs**: <span style="text-decoration:none;">check</span>(lab1/password_generator.cs)
-- **README.md**: <span style="text-decoration:none;">check</span>(lab1/README.md)      
+- **password_validator.cs**: 👉 <a href="lab1/password_validator.cs" style="text-decoration: none;">Check</a>
+- **password_generator.cs**: 👉 <a href="lab1/password_generator.cs" style="text-decoration: none;">Check</a>
+- **README.md**: 👉 <a href="lab1/README.md" style="text-decoration: none;">Check</a>
 
-### Lab 2: Regex-Based Validation <span style="text-decoration:none;">check</span>(lab2/)
+### Lab 2: Regex-Based Validation 👉 <a href="lab2/" style="text-decoration: none;">Check</a>
 This lab contains three C# programs:
-- **variableNameValidator.cs**: <span style="text-decoration:none;">check</span>(lab2/variableNameValidator.cs)
-- **logicalOperatorFinder.cs**: <span style="text-decoration:none;">check</span>(lab2/logicalOperatorFinder.cs)
-- **relationalOperatorFinder.cs**: <span style="text-decoration:none;">check</span>(lab2/relationalOperatorFinder.cs)
-- **README.md**: <span style="text-decoration:none;">check</span>(lab2/README.md)      
+- **variableNameValidator.cs**: 👉 <a href="lab2/variableNameValidator.cs" style="text-decoration: none;">Check</a>
+- **logicalOperatorFinder.cs**: 👉 <a href="lab2/logicalOperatorFinder.cs" style="text-decoration: none;">Check</a>
+- **relationalOperatorFinder.cs**: 👉 <a href="lab2/relationalOperatorFinder.cs" style="text-decoration: none;">Check</a>
+- **README.md**: 👉 <a href="lab2/README.md" style="text-decoration: none;">Check</a>
 
-### Lab 3: Floating-Point Number Validation <span style="text-decoration:none;">check</span>(lab3/)
+### Lab 3: Floating-Point Number Validation 👉 <a href="lab3/" style="text-decoration: none;">Check</a>
 This lab contains one C# program:
-- **floatingPointNumberValidator.cs**: <span style="text-decoration:none;">check</span>(lab3/floatingPointNumberValidator.cs)
-- **README.md**: <span style="text-decoration:none;">check</span>(lab3/README.md)
+- **floatingPointNumberValidator.cs**: 👉 <a href="lab3/floatingPointNumberValidator.cs" style="text-decoration: none;">Check</a>
+- **README.md**: 👉 <a href="lab3/README.md" style="text-decoration: none;">Check</a>
 
 ---
 
@@ -100,4 +101,4 @@ This project is public, no license required. Make sure to credit the [author](ht
 ---
 
 **⭐️ If you like this project, don't forget to give it a star!** 😊
-
+```
