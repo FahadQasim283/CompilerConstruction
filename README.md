@@ -51,10 +51,6 @@ CompilerConstruction/
 
 ---
 
-[Lab 1: Password Validation and Generation](https://github.com/FahadQasim283/CompilerConstruction/tree/master/lab1/)  
-[Lab 2: Regex-Based Validation](https://github.com/FahadQasim283/CompilerConstruction/tree/master/lab2/)  
-[Lab 3: Floating-Point Number Validation](https://github.com/FahadQasim283/CompilerConstruction/tree/master/lab3/)  
-
 ## 🧪 Lab Exercises
 
 ### Lab 1: Password Validation and Generation [Check](https://github.com/FahadQasim283/CompilerConstruction/tree/master/lab1/)
