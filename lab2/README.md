@@ -1,7 +1,3 @@
-Here's your improved version with icons and emojis for better visuals:  
-
----
-
 # 📂 Lab 2 – Regex-Based Validation in C#  
 
 This folder contains three C# programs focused on regex-based validation.  
@@ -9,8 +5,8 @@ This folder contains three C# programs focused on regex-based validation.
 ## 📁 Files  
 
 - 📝 **`variableNameValidator.cs`** – Validates variable names using a regex pattern.  
-- ⚡ **`logicalOperatorFinder.cs`** – Checks for valid logical operators using regex.  
-- 🔍 **`relationalOperatorFinder.cs`** – Identifies relational operators using regex.  
+- 📝 **`logicalOperatorFinder.cs`** – Checks for valid logical operators using regex.  
+- 📝 **`relationalOperatorFinder.cs`** – Identifies relational operators using regex.  
 
 ---
 
@@ -26,7 +22,7 @@ Run the program and enter a variable name. The output will indicate whether it's
 
 ---
 
-## ⚡ logicalOperatorFinder.cs  
+## 📝 logicalOperatorFinder.cs  
 
 ✔️ **Valid Logical Operators:**  
 - `&&` (AND)  
@@ -38,7 +34,7 @@ Run the program and enter a logical operator. The output will indicate whether i
 
 ---
 
-## 🔍 relationalOperatorFinder.cs  
+## 📝 relationalOperatorFinder.cs  
 
 ✔️ **Valid Relational Operators:**  
 - `==` (Equal to)  
@@ -68,4 +64,4 @@ Run the program and enter a relational operator. The output will indicate whethe
 
 🌟 **If you like this project, don't forget to give it a star!** ⭐😊  
 
-Let me know if you'd like any further enhancements! 🚀
+Let me know if you need any more refinements! 🚀
