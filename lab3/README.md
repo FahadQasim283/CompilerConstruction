@@ -1,35 +1,37 @@
-# 📂 Lab 3
+# 📂 Lab 3 – Floating-Point Number Validation in C#  
 
-This folder contains one C# program related to floating-point number validation.
+This folder contains one C# program focused on floating-point number validation.  
 
-## Files
+## 📁 Files  
 
-- `floatingPointNumberValidator.cs`: A program to validate floating-point numbers using a regex pattern.
-
----
-
-## floatingPointNumberValidator.cs
-
-This program validates floating-point numbers according to the following criteria:
-- Must be a valid floating-point number.
-- Maximum length of 6 digits before and after the decimal point.
-
-### Usage
-
-Run the program to validate a floating-point number. The output will indicate whether the number is valid or invalid.
+- 📝 **`floatingPointNumberValidator.cs`** – Validates floating-point numbers using a regex pattern.  
 
 ---
 
-## 📄 License
+## 📝 floatingPointNumberValidator.cs  
 
-This project is Public no License required. Make sure to credit the author by mentioning the GitHub repository while using this project.
+✔️ **Validation Criteria:**  
+- Must be a **valid floating-point number**.  
+- Maximum length of **6 digits before and after the decimal point**.  
+
+📌 **Usage:**  
+Run the program and enter a floating-point number. The output will indicate whether it's **valid ✅** or **invalid ❌**.  
 
 ---
 
-## 📧 Contact
+## 📄 License  
 
-For inquiries or support, open an issue on the GitHub repository.
+🚀 **This project is public – No license required!**  
+🔗 If you use this project, please **credit the author** by mentioning the **GitHub repository**.  
 
 ---
 
-**⭐️ If you like this project, don't forget to give it a star!** 😊
+## 📧 Contact  
+
+📮 For inquiries or support, **open an issue** on the GitHub repository.  
+
+---
+
+🌟 **If you like this project, don't forget to give it a star!** ⭐😊  
+
+Let me know if you need any further refinements! 🚀
