@@ -1,60 +1,71 @@
-# 📂 Lab 2
-
-This folder contains three C# programs related to regex-based validation.
-
-## Files
-
-- `variableNameValidator.cs`: A program to validate variable names using a regex pattern.
-- `logicalOperatorFinder.cs`: A program to validate logical operators using a regex pattern.
-- `relationalOperatorFinder.cs`: A program to validate relational operators using a regex pattern.
+Here's your improved version with icons and emojis for better visuals:  
 
 ---
 
-## variableNameValidator.cs
+# 📂 Lab 2 – Regex-Based Validation in C#  
 
-This program validates variable names according to the following criteria:
-- Must start with a letter.
-- Can contain letters and digits.
-- Must be between 1 and 25 characters long.
+This folder contains three C# programs focused on regex-based validation.  
 
-### Usage
+## 📁 Files  
 
-Run the program to validate a variable name. The output will indicate whether the variable name is valid or invalid.
-
----
-
-## logicalOperatorFinder.cs
-
-This program validates logical operators according to the following criteria:
-- Valid operators: `&&`, `||`, `!`.
-
-### Usage
-
-Run the program to validate a logical operator. The output will indicate whether the operator is valid or invalid.
+- 📝 **`variableNameValidator.cs`** – Validates variable names using a regex pattern.  
+- ⚡ **`logicalOperatorFinder.cs`** – Checks for valid logical operators using regex.  
+- 🔍 **`relationalOperatorFinder.cs`** – Identifies relational operators using regex.  
 
 ---
 
-## relationalOperatorFinder.cs
+## 📝 variableNameValidator.cs  
 
-This program validates relational operators according to the following criteria:
-- Valid operators: `==`, `!=`, `<=`, `>=`, `<`, `>`.
+✔️ **Validation Criteria:**  
+- Must **start** with a **letter** (A-Z, a-z).  
+- Can contain **letters** (A-Z, a-z) and **digits** (0-9).  
+- Length: **1 to 25 characters**.  
 
-### Usage
-
-Run the program to validate a relational operator. The output will indicate whether the operator is valid or invalid.
-
----
-
-## 📄 License
-
-This project is Public no License required. Make sure to credit the author by mentioning the GitHub repository while using this project.
+📌 **Usage:**  
+Run the program and enter a variable name. The output will indicate whether it's **valid ✅** or **invalid ❌**.  
 
 ---
 
-## 📧 Contact
+## ⚡ logicalOperatorFinder.cs  
 
-For inquiries or support, open an issue on the GitHub repository.
+✔️ **Valid Logical Operators:**  
+- `&&` (AND)  
+- `||` (OR)  
+- `!` (NOT)  
+
+📌 **Usage:**  
+Run the program and enter a logical operator. The output will indicate whether it's **valid ✅** or **invalid ❌**.  
 
 ---
 
-**⭐️ If you like this project, don't forget to give it a star!** 😊
+## 🔍 relationalOperatorFinder.cs  
+
+✔️ **Valid Relational Operators:**  
+- `==` (Equal to)  
+- `!=` (Not equal to)  
+- `<=` (Less than or equal to)  
+- `>=` (Greater than or equal to)  
+- `<` (Less than)  
+- `>` (Greater than)  
+
+📌 **Usage:**  
+Run the program and enter a relational operator. The output will indicate whether it's **valid ✅** or **invalid ❌**.  
+
+---
+
+## 📄 License  
+
+🚀 **This project is public – No license required!**  
+🔗 If you use this project, please **credit the author** by mentioning the **GitHub repository**.  
+
+---
+
+## 📧 Contact  
+
+📮 For inquiries or support, **open an issue** on the GitHub repository.  
+
+---
+
+🌟 **If you like this project, don't forget to give it a star!** ⭐😊  
+
+Let me know if you'd like any further enhancements! 🚀
