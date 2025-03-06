@@ -1,64 +1,57 @@
-# 📂 Lab 1
+# 📂 Lab 1 – Password Validation & Generation in C#  
 
-This folder contains two C# programs related to password validation and generation.
+This folder contains two C# programs related to **password validation and generation**.  
 
-## Files
+## 📁 Files  
 
-- `password_validator.cs`: A program to validate passwords based on specific criteria.
-- `password_generator.cs`: A program to generate passwords based on user input.
-
----
-
-## password_validator.cs
-
-This program validates passwords according to the following criteria:
-- Must be between 1 and 12 characters.
-- Must contain at least 2 of the digits 2, 0, 3, or 4.
-- Must contain at least 1 uppercase letter.
-- Must contain at least 2 lowercase letters.
-- Must contain at least 2 special characters.
-- Must contain at least 4 of the letters 'f', 'a', 'h', 'd', 'q', 's', 'i', or 'm'.
-- Must start with a letter.
-
-### Usage
-
-Run the program to validate a predefined list of passwords. The output will indicate whether each password is valid or invalid.
+- 📝 **`password_validator.cs`** – Validates passwords based on specific criteria.  
+- 📝 **`password_generator.cs`** – Generates passwords based on user input.  
 
 ---
 
-## password_generator.cs
+## 📝 password_validator.cs  
 
-This program generates a password based on the following user input:
-- First name
-- Last name
-- Registration number
-- Favorite movie
-- Favorite food
+✔️ **Validation Criteria:**  
+- Length: **1 to 12 characters**.  
+- Must contain at least **2 digits** (from `2, 0, 3, 4`).  
+- Must contain at least **1 uppercase letter**.  
+- Must contain at least **2 lowercase letters**.  
+- Must contain at least **2 special characters**.  
+- Must include at least **4 letters** from (`f, a, h, d, q, s, i, m`).  
+- Must **start** with a **letter**.  
 
-### Criteria
-
-- Use the entire first name.
-- Append 3 characters from the last name (if the last name is shorter than 3 characters, use all of it).
-- Append 3 digits extracted from the registration number (digits are extracted in the order they appear; if fewer than 3 digits exist, the program warns and exits).
-- Append 2 characters from the favorite movie (if the movie string is shorter than 2 characters, use all of it).
-- Append 1 character from the favorite food (if empty, the program warns and exits).
-
-### Usage
-
-Run the program to generate a password based on the predefined input. The generated password will be printed to the console.
+📌 **Usage:**  
+Run the program to validate a predefined list of passwords. The output will indicate whether each password is **valid ✅** or **invalid ❌**.  
 
 ---
 
-## 📄 License
+## 📝 password_generator.cs  
 
-This project is Public no License required. Make sure credit author by mentioning GitHub while using this project.
+✔️ **Password Generation Based on User Input:**  
+- **First Name** – Used entirely.  
+- **Last Name** – First **3 characters** (or all if shorter).  
+- **Registration Number** – Extracts **3 digits** in order (if fewer than 3 exist, the program warns and exits).  
+- **Favorite Movie** – First **2 characters** (or all if shorter).  
+- **Favorite Food** – First **1 character** (if empty, the program warns and exits).  
+
+📌 **Usage:**  
+Run the program to generate a password based on the predefined input. The generated password will be **printed to the console**.  
 
 ---
 
-## 📧 Contact
+## 📄 License  
 
-For inquiries or support, open an issue on the GitHub repository.
+🚀 **This project is public – No license required!**  
+🔗 If you use this project, please **credit the author** by mentioning the **GitHub repository**.  
 
 ---
 
-**⭐️ If you like this project, don't forget to give it a star!** 😊
+## 📧 Contact  
+
+📮 For inquiries or support, **open an issue** on the GitHub repository.  
+
+---
+
+🌟 **If you like this project, don't forget to give it a star!** ⭐😊  
+
+Let me know if you need any further refinements! 🚀
