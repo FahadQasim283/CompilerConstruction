@@ -24,5 +24,6 @@ class Program
 0.1	        Valid floating-point number.
 1000000.1	Invalid floating-point number.
 12.1234567	Invalid floating-point number.
+floatingPointNumberValidator
 .45	        Invalid floating-point number.
 */ 
