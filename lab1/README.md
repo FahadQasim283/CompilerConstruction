@@ -5,7 +5,9 @@ This folder contains two C# programs related to **password validation and genera
 ## 📁 Files  
 
 - 📝 **`password_validator.cs`** – Validates passwords based on specific criteria.  
-- 📝 **`password_generator.cs`** – Generates passwords based on user input.  
+- 📝 **`password_generator.cs`** – Generates passwords based on user input.
+- 📝 **`output-password_generator.png`** – output screenshot
+- 📝 **`output-password_validator.png`** – output screenshot
 
 ---
 
