@@ -62,7 +62,7 @@ CompilerConstruction/
 ### Lab 1: Password Validation and Generation
 This lab contains two C# programs:
 - 👉 [Code](lab1/code/)
-- 👉 [Output](lab1/ouput)
+- 👉 [Output](lab1/ouput/)
 
 ### Lab 2: Regex-Based Validation
 This lab contains three C# programs:
