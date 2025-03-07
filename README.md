@@ -35,17 +35,23 @@ Ensure you have the necessary tools and libraries installed to run the code exam
 ```bash
 CompilerConstruction/
 ├── lab1/
-│   ├── password_validator.cs
-│   ├── password_generator.cs
 │   ├── README.md
+│   ├── code/
+│   ├── output/
 ├── lab2/
-│   ├── variableNameValidator.cs
-│   ├── logicalOperatorFinder.cs
-│   ├── relationalOperatorFinder.cs
 │   ├── README.md
+│   ├── code/
+│   ├── output/
 ├── lab3/
-│   ├── floatingPointNumberValidator.cs
 │   ├── README.md
+│   ├── code/
+│   ├── output/
+├── lab4/
+│   ├── code/
+│   ├── output/
+├── lab5/
+│   ├── code/
+│   ├── output/
 ├── README.md
 ```
 
@@ -53,23 +59,30 @@ CompilerConstruction/
 
 ## 🧪 Code Links
 
-### Lab 1: Password Validation and Generation 👉 [check](lab1/)
+### Lab 1: Password Validation and Generation
 This lab contains two C# programs:
-- **password_validator.cs**: 👉 [check](lab1/password_validator.cs)
-- **password_generator.cs**: 👉 [check](lab1/password_generator.cs)
-- **README.md**: 👉 [check](lab1/README.md)      
+- 👉 [check](lab1/code/)
+- 👉 [check](lab1/ouput/)
 
-### Lab 2: Regex-Based Validation 👉 [check](lab2/)
+### Lab 2: Regex-Based Validation
 This lab contains three C# programs:
-- **variableNameValidator.cs**: 👉 [check](lab2/variableNameValidator.cs)
-- **logicalOperatorFinder.cs**: 👉 [check](lab2/logicalOperatorFinder.cs)
-- **relationalOperatorFinder.cs**: 👉 [check](lab2/relationalOperatorFinder.cs)
-- **README.md**: 👉 [check](lab2/README.md)      
+- 👉 [check](lab2/code/)
+- 👉 [check](lab2/output/)
 
-### Lab 3: Floating-Point Number Validation 👉 [check](lab3/)
+### Lab 3: Floating-Point Number Validation
 This lab contains one C# program:
-- **floatingPointNumberValidator.cs**: 👉 [check](lab3/floatingPointNumberValidator.cs)
-- **README.md**: 👉 [check](lab3/README.md)
+- 👉 [check](lab3/code/)
+- 👉 [check](lab3/output/)
+
+### Lab 4: Task Description
+This lab contains:
+- 👉 [check](lab4/code/)
+- 👉 [check](lab4/output/)
+
+### Lab 5: Task Description
+This lab contains:
+- 👉 [check](lab5/code/)
+- 👉 [check](lab5/output/)
 
 ---
 
