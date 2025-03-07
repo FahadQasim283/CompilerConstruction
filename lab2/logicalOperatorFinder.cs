@@ -5,10 +5,11 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("""This pattern ensures that:
-                            && (AND operator) is matched.
-                            || (OR operator) is matched.
-                            ! (NOT operator) is matched\n\n""");
+        Console.WriteLine("This pattern ensures that");
+        Console.WriteLine("&& (AND operator) is matched");
+        Console.WriteLine("|| (OR operator) is matched");
+        Console.WriteLine("! (NOT operator) is matched");
+        Console.WriteLine("Enter a logical operator:");
         Console.WriteLine("Enter a logical operator:");
         string input = Console.ReadLine();
 

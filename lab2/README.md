@@ -7,6 +7,9 @@ This folder contains three C# programs focused on regex-based validation.
 - 📝 **`variableNameValidator.cs`** – Validates variable names using a regex pattern.  
 - 📝 **`logicalOperatorFinder.cs`** – Checks for valid logical operators using regex.  
 - 📝 **`relationalOperatorFinder.cs`** – Identifies relational operators using regex.  
+- 📝 **`ouput-variableNameValidator.png`** – output screenshot
+- 📝 **`ouput-logicalOperatorFinder.png`** – output screenshot
+- 📝 **`ouput-relationalOperatorFinder.png`** – output screenshot
 
 ---
 
