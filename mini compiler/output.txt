@@ -1,0 +1,87 @@
+=== MINI COMPILER ===
+A Custom Compiler Implementation in C#
+
+No file specified. Running sample program...
+
+Sample source code:
+-------------------
+
+// Sample Program for Mini Compiler
+int x = 10;
+int y = 20;
+int result = x + y * 2;
+print(result);
+
+string message = "Hello, World!";
+print(message);
+
+bool flag = true;
+if (flag) {
+    print("Flag is true");
+    int counter = 0;
+    while (counter < 3) {
+        print(counter);
+        counter = counter + 1;
+    }
+} else {
+    print("Flag is false");
+}
+
+float pi = 3.14159;
+float area = pi * 5.0 * 5.0;
+print(area);
+
+
+=== COMPILATION PROCESS ===
+
+Phase 1: Lexical Analysis (Tokenization)
+----------------------------------------
+Tokens generated:
+  Token(DIVIDE, '/', 2:1)
+  Token(DIVIDE, '/', 2:2)
+  Token(IDENTIFIER, 'Sample', 2:4)
+  Token(IDENTIFIER, 'Program', 2:11)
+  Token(FOR, 'for', 2:19)
+  Token(IDENTIFIER, 'Mini', 2:23)
+  Token(IDENTIFIER, 'Compiler', 2:28)
+  Token(INT, 'int', 3:1)
+  Token(IDENTIFIER, 'x', 3:5)
+  Token(ASSIGN, '=', 3:7)
+  Token(NUMBER, '10', 3:9)
+  Token(SEMICOLON, ';', 3:11)
+  Token(INT, 'int', 4:1)
+  Token(IDENTIFIER, 'y', 4:5)
+  Token(ASSIGN, '=', 4:7)
+  Token(NUMBER, '20', 4:9)
+  Token(SEMICOLON, ';', 4:11)
+  Token(INT, 'int', 5:1)
+  Token(IDENTIFIER, 'result', 5:5)
+  Token(ASSIGN, '=', 5:12)
+  ... and 89 more tokens
+
+Phase 2: Syntax Analysis (Parsing)
+-----------------------------------
+Parse error: Unexpected token: /
+Parse error: Unexpected token: for
+AST generated with 11 statements
+Parse completed successfully!
+
+Phase 3: Semantic Analysis
+--------------------------
+Semantic analysis passed!
+
+Phase 4: Code Generation & Execution
+------------------------------------
+Program output:
+---------------
+50
+Hello, World!
+Flag is true
+0
+1
+2
+78.53975
+
+=== COMPILATION SUCCESSFUL ===
+
+Press any key to exit...
