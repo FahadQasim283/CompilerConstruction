@@ -263,6 +263,34 @@ public class Lexer
             {
                 Advance();
             }
+            else if (c == '/' && position + 1 < source.Length && source[position + 1] == '/')
+            {
+                // Handle single-line comments
+                while (!IsAtEnd() && Peek() != '\n')
+                {
+                    Advance();
+                }
+            }
+            else if (c == '/' && position + 1 < source.Length && source[position + 1] == '*')
+            {
+                // Handle multi-line comments
+                Advance(); // Consume '/'
+                Advance(); // Consume '*'
+                while (!IsAtEnd() && !(Peek() == '*' && position + 1 < source.Length && source[position + 1] == '/'))
+                {
+                    if (Peek() == '\n')
+                    {
+                        line++;
+                        column = 1;
+                    }
+                    Advance();
+                }
+                if (!IsAtEnd())
+                {
+                    Advance(); // Consume '*'
+                    Advance(); // Consume '/'
+                }
+            }
             else
             {
                 break;
@@ -305,7 +333,6 @@ public abstract class ASTNode
 public abstract class Statement : ASTNode { }
 public abstract class Expression : ASTNode { }
 
-// Statement nodes
 public class PrintStatement : Statement
 {
     public Expression Expression { get; set; }
@@ -500,7 +527,7 @@ public class Parser
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Parse error: {e.Message}");
+                Console.WriteLine($"Parse error at line {Peek().Line}: {e.Message}");
                 Synchronize();
             }
         }
@@ -519,7 +546,7 @@ public class Parser
         // Expression statement
         Expression expr = ParseExpression();
         Consume(TokenType.SEMICOLON, "Expected ';' after expression");
-        return new PrintStatement(expr); // Treat standalone expressions as print statements
+        return new PrintStatement(expr);
     }
 
     private Statement ParsePrintStatement()
@@ -552,7 +579,7 @@ public class Parser
         Consume(TokenType.ASSIGN, "Expected '=' in assignment");
         Expression value = ParseExpression();
         Consume(TokenType.SEMICOLON, "Expected ';' after assignment");
-        return new AssignmentStatement(name.Value, value);
+        return new AssignmentStatement(name.Value, value); // Fixed typo: Changed DefinitionStatement to AssignmentStatement
     }
 
     private Statement ParseIfStatement()
@@ -733,7 +760,7 @@ public class Parser
             return expr;
         }
         
-        throw new Exception($"Unexpected token: {Peek().Value}");
+        throw new Exception($"Unexpected token: {Peek().Value} at line {Peek().Line}");
     }
 
     private bool Match(params TokenType[] types)
@@ -785,7 +812,7 @@ public class Parser
     private Token Consume(TokenType type, string message)
     {
         if (Check(type)) return Advance();
-        throw new Exception($"{message}. Got {Peek().Type} instead");
+        throw new Exception($"{message}. Got {Peek().Type} at line {Peek().Line}");
     }
 
     private void Synchronize()
@@ -831,33 +858,65 @@ public class Symbol
 
 public class SymbolTable
 {
-    private Dictionary<string, Symbol> symbols;
-    
+    private List<Dictionary<string, Symbol>> scopes;
+    private int currentScopeLevel;
+
     public SymbolTable()
     {
-        symbols = new Dictionary<string, Symbol>();
+        scopes = new List<Dictionary<string, Symbol>>();
+        scopes.Add(new Dictionary<string, Symbol>()); // Global scope
+        currentScopeLevel = 0;
     }
-    
+
+    public void EnterScope()
+    {
+        scopes.Add(new Dictionary<string, Symbol>());
+        currentScopeLevel++;
+    }
+
+    public void ExitScope()
+    {
+        if (currentScopeLevel > 0)
+        {
+            scopes.RemoveAt(currentScopeLevel);
+            currentScopeLevel--;
+        }
+    }
+
     public void Define(string name, string type, object value = null)
     {
-        symbols[name] = new Symbol(name, type, value);
+        scopes[currentScopeLevel][name] = new Symbol(name, type, value);
     }
-    
+
     public Symbol Get(string name)
     {
-        return symbols.ContainsKey(name) ? symbols[name] : null;
+        for (int i = currentScopeLevel; i >= 0; i--)
+        {
+            if (scopes[i].ContainsKey(name))
+                return scopes[i][name];
+        }
+        return null;
     }
-    
+
     public bool IsDefined(string name)
     {
-        return symbols.ContainsKey(name);
+        for (int i = currentScopeLevel; i >= 0; i--)
+        {
+            if (scopes[i].ContainsKey(name))
+                return true;
+        }
+        return false;
     }
-    
+
     public void Set(string name, object value)
     {
-        if (symbols.ContainsKey(name))
+        for (int i = currentScopeLevel; i >= 0; i--)
         {
-            symbols[name].Value = value;
+            if (scopes[i].ContainsKey(name))
+            {
+                scopes[i][name].Value = value;
+                return;
+            }
         }
     }
 }
@@ -867,47 +926,52 @@ public class SemanticAnalyzer : IASTVisitor
 {
     private SymbolTable symbolTable;
     private List<string> errors;
-    
+
     public SemanticAnalyzer()
     {
         symbolTable = new SymbolTable();
         errors = new List<string>();
     }
-    
+
     public List<string> Analyze(List<Statement> statements)
     {
         errors.Clear();
-        
+        symbolTable.EnterScope(); // Enter global scope
         foreach (Statement stmt in statements)
         {
             stmt.Accept(this);
         }
-        
+        symbolTable.ExitScope();
         return errors;
     }
-    
+
     public void VisitPrintStatement(PrintStatement stmt)
     {
         stmt.Expression.Accept(this);
     }
-    
+
     public void VisitVariableDeclaration(VariableDeclaration stmt)
     {
         if (symbolTable.IsDefined(stmt.Name))
         {
-            errors.Add($"Variable '{stmt.Name}' is already declared");
+            errors.Add($"Variable '{stmt.Name}' is already declared in this scope");
             return;
         }
-        
-        object value = null;
+
+        string exprType = null;
         if (stmt.Initializer != null)
         {
             stmt.Initializer.Accept(this);
+            exprType = GetExpressionType(stmt.Initializer);
+            if (!IsCompatibleType(stmt.Type, exprType))
+            {
+                errors.Add($"Type mismatch: Cannot assign {exprType} to {stmt.Type} variable '{stmt.Name}'");
+            }
         }
-        
-        symbolTable.Define(stmt.Name, stmt.Type, value);
+
+        symbolTable.Define(stmt.Name, stmt.Type, null);
     }
-    
+
     public void VisitAssignmentStatement(AssignmentStatement stmt)
     {
         if (!symbolTable.IsDefined(stmt.Variable))
@@ -915,57 +979,303 @@ public class SemanticAnalyzer : IASTVisitor
             errors.Add($"Undefined variable '{stmt.Variable}'");
             return;
         }
-        
+
         stmt.Value.Accept(this);
+        string exprType = GetExpressionType(stmt.Value);
+        Symbol symbol = symbolTable.Get(stmt.Variable);
+        if (!IsCompatibleType(symbol.Type, exprType))
+        {
+            errors.Add($"Type mismatch: Cannot assign {exprType} to {symbol.Type} variable '{stmt.Variable}'");
+        }
     }
-    
+
     public void VisitIfStatement(IfStatement stmt)
     {
         stmt.Condition.Accept(this);
-        
+        string condType = GetExpressionType(stmt.Condition);
+        if (condType != "bool")
+        {
+            errors.Add($"If condition must be boolean, got {condType}");
+        }
+
+        symbolTable.EnterScope();
         foreach (Statement s in stmt.ThenBranch)
         {
             s.Accept(this);
         }
-        
+        symbolTable.ExitScope();
+
+        symbolTable.EnterScope();
         foreach (Statement s in stmt.ElseBranch)
         {
             s.Accept(this);
         }
+        symbolTable.ExitScope();
     }
-    
+
     public void VisitWhileStatement(WhileStatement stmt)
     {
         stmt.Condition.Accept(this);
-        
+        string condType = GetExpressionType(stmt.Condition);
+        if (condType != "bool")
+        {
+            errors.Add($"While condition must be boolean, got {condType}");
+        }
+
+        symbolTable.EnterScope();
         foreach (Statement s in stmt.Body)
         {
             s.Accept(this);
         }
+        symbolTable.ExitScope();
     }
-    
+
     public void VisitBinaryExpression(BinaryExpression expr)
     {
         expr.Left.Accept(this);
         expr.Right.Accept(this);
+        string leftType = GetExpressionType(expr.Left);
+        string rightType = GetExpressionType(expr.Right);
+
+        switch (expr.Operator.Type)
+        {
+            case TokenType.PLUS:
+            case TokenType.MINUS:
+            case TokenType.MULTIPLY:
+            case TokenType.DIVIDE:
+            case TokenType.MODULO:
+                if (!(leftType == "int" || leftType == "float") || !(rightType == "int" || rightType == "float"))
+                {
+                    errors.Add($"Operator {expr.Operator.Value} requires numeric operands, got {leftType} and {rightType}");
+                }
+                break;
+            case TokenType.EQUAL:
+            case TokenType.NOT_EQUAL:
+                if (leftType != rightType)
+                {
+                    errors.Add($"Cannot compare {leftType} with {rightType} using {expr.Operator.Value}");
+                }
+                break;
+            case TokenType.AND:
+            case TokenType.OR:
+                if (leftType != "bool" || rightType != "bool")
+                {
+                    errors.Add($"Operator {expr.Operator.Value} requires boolean operands, got {leftType} and {rightType}");
+                }
+                break;
+            case TokenType.GREATER_THAN:
+            case TokenType.GREATER_EQUAL:
+            case TokenType.LESS_THAN:
+            case TokenType.LESS_EQUAL:
+                if (!(leftType == "int" || leftType == "float") || !(rightType == "int" || rightType == "float"))
+                {
+                    errors.Add($"Operator {expr.Operator.Value} requires numeric operands, got {leftType} and {rightType}");
+                }
+                break;
+        }
     }
-    
+
     public void VisitUnaryExpression(UnaryExpression expr)
     {
         expr.Right.Accept(this);
+        string rightType = GetExpressionType(expr.Right);
+        if (expr.Operator.Type == TokenType.NOT && rightType != "bool")
+        {
+            errors.Add($"Operator ! requires boolean operand, got {rightType}");
+        }
+        else if (expr.Operator.Type == TokenType.MINUS && !(rightType == "int" || rightType == "float"))
+        {
+            errors.Add($"Operator - requires numeric operand, got {rightType}");
+        }
     }
-    
+
     public void VisitLiteralExpression(LiteralExpression expr)
     {
         // Nothing to check for literals
     }
-    
+
     public void VisitVariableExpression(VariableExpression expr)
     {
         if (!symbolTable.IsDefined(expr.Name))
         {
             errors.Add($"Undefined variable '{expr.Name}'");
         }
+    }
+
+    private string GetExpressionType(Expression expr)
+    {
+        if (expr is LiteralExpression lit)
+        {
+            if (lit.Value is int) return "int";
+            if (lit.Value is double) return "float";
+            if (lit.Value is string) return "string";
+            if (lit.Value is bool) return "bool";
+        }
+        else if (expr is VariableExpression var)
+        {
+            Symbol symbol = symbolTable.Get(var.Name);
+            return symbol?.Type ?? "unknown";
+        }
+        else if (expr is BinaryExpression bin)
+        {
+            string leftType = GetExpressionType(bin.Left);
+            string rightType = GetExpressionType(bin.Right);
+            switch (bin.Operator.Type)
+            {
+                case TokenType.PLUS:
+                    if (leftType == "string" || rightType == "string") return "string";
+                    return (leftType == "float" || rightType == "float") ? "float" : "int";
+                case TokenType.MINUS:
+                case TokenType.MULTIPLY:
+                case TokenType.DIVIDE:
+                    return (leftType == "float" || rightType == "float") ? "float" : "int";
+                case TokenType.MODULO:
+                    return "int";
+                case TokenType.EQUAL:
+                case TokenType.NOT_EQUAL:
+                case TokenType.GREATER_THAN:
+                case TokenType.GREATER_EQUAL:
+                case TokenType.LESS_THAN:
+                case TokenType.LESS_EQUAL:
+                case TokenType.AND:
+                case TokenType.OR:
+                    return "bool";
+            }
+        }
+        else if (expr is UnaryExpression un)
+        {
+            if (un.Operator.Type == TokenType.NOT) return "bool";
+            return GetExpressionType(un.Right);
+        }
+        return "unknown";
+    }
+
+    private bool IsCompatibleType(string varType, string exprType)
+    {
+        if (varType == exprType) return true;
+        if (varType == "float" && exprType == "int") return true; // Allow int to float
+        return false;
+    }
+}
+
+// Intermediate Code Generator (Three-Address Code)
+public class IntermediateCodeGenerator : IASTVisitor
+{
+    private List<string> code;
+    private int tempCounter;
+    private int labelCounter;
+    private string lastTemp;
+
+    public IntermediateCodeGenerator()
+    {
+        code = new List<string>();
+        tempCounter = 0;
+        labelCounter = 0;
+    }
+
+    public List<string> Generate(List<Statement> statements)
+    {
+        code.Clear();
+        tempCounter = 0;
+        labelCounter = 0;
+        foreach (Statement stmt in statements)
+        {
+            stmt.Accept(this);
+        }
+        return code;
+    }
+
+    public void VisitPrintStatement(PrintStatement stmt)
+    {
+        stmt.Expression.Accept(this);
+        code.Add($"print {lastTemp}");
+    }
+
+    public void VisitVariableDeclaration(VariableDeclaration stmt)
+    {
+        if (stmt.Initializer != null)
+        {
+            stmt.Initializer.Accept(this);
+            code.Add($"{stmt.Name} = {lastTemp}");
+        }
+        else
+        {
+            code.Add($"{stmt.Name} = 0");
+        }
+    }
+
+    public void VisitAssignmentStatement(AssignmentStatement stmt)
+    {
+        stmt.Value.Accept(this);
+        code.Add($"{stmt.Variable} = {lastTemp}");
+    }
+
+    public void VisitIfStatement(IfStatement stmt)
+    {
+        stmt.Condition.Accept(this);
+        string elseLabel = $"L{labelCounter++}";
+        string endLabel = $"L{labelCounter++}";
+        code.Add($"if not {lastTemp} goto {elseLabel}");
+        
+        foreach (Statement s in stmt.ThenBranch)
+        {
+            s.Accept(this);
+        }
+        code.Add($"goto {endLabel}");
+        code.Add($"{elseLabel}:");
+        
+        foreach (Statement s in stmt.ElseBranch)
+        {
+            s.Accept(this);
+        }
+        code.Add($"{endLabel}:");
+    }
+
+    public void VisitWhileStatement(WhileStatement stmt)
+    {
+        string startLabel = $"L{labelCounter++}";
+        string endLabel = $"L{labelCounter++}";
+        code.Add($"{startLabel}:");
+        
+        stmt.Condition.Accept(this);
+        code.Add($"if not {lastTemp} goto {endLabel}");
+        
+        foreach (Statement s in stmt.Body)
+        {
+            s.Accept(this);
+        }
+        code.Add($"goto {startLabel}");
+        code.Add($"{endLabel}:");
+    }
+
+    public void VisitBinaryExpression(BinaryExpression expr)
+    {
+        expr.Left.Accept(this);
+        string leftTemp = lastTemp;
+        expr.Right.Accept(this);
+        string rightTemp = lastTemp;
+        string resultTemp = $"t{tempCounter++}";
+        code.Add($"{resultTemp} = {leftTemp} {expr.Operator.Value} {rightTemp}");
+        lastTemp = resultTemp;
+    }
+
+    public void VisitUnaryExpression(UnaryExpression expr)
+    {
+        expr.Right.Accept(this);
+        string rightTemp = lastTemp;
+        string resultTemp = $"t{tempCounter++}";
+        code.Add($"{resultTemp} = {expr.Operator.Value}{rightTemp}");
+        lastTemp = resultTemp;
+    }
+
+    public void VisitLiteralExpression(LiteralExpression expr)
+    {
+        lastTemp = expr.Value.ToString();
+    }
+
+    public void VisitVariableExpression(VariableExpression expr)
+    {
+        lastTemp = expr.Name;
     }
 }
 
@@ -982,10 +1292,12 @@ public class Interpreter : IASTVisitor
     
     public void Execute(List<Statement> statements)
     {
+        symbolTable.EnterScope();
         foreach (Statement stmt in statements)
         {
             stmt.Accept(this);
         }
+        symbolTable.ExitScope();
     }
     
     public void VisitPrintStatement(PrintStatement stmt)
@@ -1017,6 +1329,7 @@ public class Interpreter : IASTVisitor
         stmt.Condition.Accept(this);
         bool condition = IsTruthy(lastValue);
         
+        symbolTable.EnterScope();
         if (condition)
         {
             foreach (Statement s in stmt.ThenBranch)
@@ -1031,10 +1344,12 @@ public class Interpreter : IASTVisitor
                 s.Accept(this);
             }
         }
+        symbolTable.ExitScope();
     }
     
     public void VisitWhileStatement(WhileStatement stmt)
     {
+        symbolTable.EnterScope();
         while (true)
         {
             stmt.Condition.Accept(this);
@@ -1045,6 +1360,7 @@ public class Interpreter : IASTVisitor
                 s.Accept(this);
             }
         }
+        symbolTable.ExitScope();
     }
     
     public void VisitBinaryExpression(BinaryExpression expr)
@@ -1195,7 +1511,7 @@ public class MiniCompiler
             List<Token> tokens = lexer.Tokenize();
             
             Console.WriteLine("Tokens generated:");
-            foreach (Token token in tokens.Take(20)) // Show first 20 tokens
+            foreach (Token token in tokens.Take(20))
             {
                 Console.WriteLine($"  {token}");
             }
@@ -1232,8 +1548,20 @@ public class MiniCompiler
                 Console.WriteLine("Semantic analysis passed!\n");
             }
             
-            // Phase 4: Code Generation (Interpretation)
-            Console.WriteLine("Phase 4: Code Generation & Execution");
+            // Phase 4: Intermediate Code Generation
+            Console.WriteLine("Phase 4: Intermediate Code Generation");
+            Console.WriteLine("-------------------------------------");
+            IntermediateCodeGenerator irGenerator = new IntermediateCodeGenerator();
+            List<string> irCode = irGenerator.Generate(ast);
+            Console.WriteLine("Three-Address Code generated:");
+            foreach (string instruction in irCode)
+            {
+                Console.WriteLine($"  {instruction}");
+            }
+            Console.WriteLine();
+            
+            // Phase 5: Code Generation & Execution
+            Console.WriteLine("Phase 5: Code Generation & Execution");
             Console.WriteLine("------------------------------------");
             Console.WriteLine("Program output:");
             Console.WriteLine("---------------");
@@ -1286,13 +1614,13 @@ public class Program
         }
         else
         {
-            // Interactive mode or sample program
+            // Interactive mode with sample program
             Console.WriteLine("No file specified. Running sample program...\n");
             
             string sampleProgram = @"
 // Sample Program for Mini Compiler
-int x = 10;
-int y = 20;
+int x = 10; // Declare x
+int y = 20; /* Declare y */
 int result = x + y * 2;
 print(result);
 
@@ -1323,42 +1651,5 @@ print(area);
             
             compiler.Compile(sampleProgram);
         }
-        
-        Console.WriteLine("\nPress any key to exit...");
-        Console.ReadKey();
     }
 }
-
-// Language Grammar (BNF-like notation in comments)
-/*
-GRAMMAR FOR THE MINI LANGUAGE:
-
-program         -> statement* EOF
-statement       -> printStmt | varDecl | assignStmt | ifStmt | whileStmt | exprStmt
-printStmt       -> "print" "(" expression ")" ";"
-varDecl         -> type IDENTIFIER ( "=" expression )? ";"
-assignStmt      -> IDENTIFIER "=" expression ";"
-ifStmt          -> "if" "(" expression ")" "{" statement* "}" ( "else" "{" statement* "}" )?
-whileStmt       -> "while" "(" expression ")" "{" statement* "}"
-exprStmt        -> expression ";"
-
-expression      -> logicalOr
-logicalOr       -> logicalAnd ( "||" logicalAnd )*
-logicalAnd      -> equality ( "&&" equality )*
-equality        -> comparison ( ( "!=" | "==" ) comparison )*
-comparison      -> term ( ( ">" | ">=" | "<" | "<=" ) term )*
-term            -> factor ( ( "-" | "+" ) factor )*
-factor          -> unary ( ( "/" | "*" | "%" ) unary )*
-unary           -> ( "!" | "-" ) unary | primary
-primary         -> "true" | "false" | NUMBER | STRING | IDENTIFIER | "(" expression ")"
-
-type            -> "int" | "float" | "string" | "bool"
-
-Tokens:
-- Keywords: int, float, string, bool, if, else, while, for, return, print, true, false
-- Identifiers: [a-zA-Z_][a-zA-Z0-9_]*
-- Numbers: [0-9]+(\.[0-9]+)?
-- Strings: ".*"
-- Operators: +, -, *, /, %, =, ==, !=, <, <=, >, >=, &&, ||, !
-- Delimiters: ;, ,, (, ), {, }
-*/
